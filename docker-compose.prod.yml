@@ -4,7 +4,7 @@ services:
   payload:
     build: .
     ports:
-      - '3005:3000'
+      - '4000:3000'
     env_file:
       - .env
     volumes:
