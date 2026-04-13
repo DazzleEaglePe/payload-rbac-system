@@ -7,6 +7,8 @@ services:
       - '3005:3000'
     env_file:
       - .env
+    volumes:
+      - media:/app/media
     depends_on:
       - mongo
 
@@ -23,3 +25,4 @@ services:
 
 volumes:
   data:
+  media:
