@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  payload:
+    build: .
+    ports:
+      - '3000:3000'
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    command:
+      - --storageEngine=wiredTiger
+    volumes:
+      - data:/data/db
+    logging:
+      driver: none
+
+volumes:
+  data:

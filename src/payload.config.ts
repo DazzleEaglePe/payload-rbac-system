@@ -17,8 +17,8 @@ if (!process.env.PAYLOAD_SECRET) {
   throw new Error('PAYLOAD_SECRET environment variable is required')
 }
 
-if (!process.env.DATABASE_URL) {
-  throw new Error('DATABASE_URL environment variable is required')
+if (!process.env.DATABASE_URI) {
+  throw new Error('DATABASE_URI environment variable is required')
 }
 
 export default buildConfig({
@@ -35,7 +35,7 @@ export default buildConfig({
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: mongooseAdapter({
-    url: process.env.DATABASE_URL,
+    url: process.env.DATABASE_URI,
   }),
   sharp,
   plugins: [],
